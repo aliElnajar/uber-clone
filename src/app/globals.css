@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer components {
+  .btn-custom {
+    @apply bg-neutral-900 py-2 px-3 md:py-4 md:px-6 rounded-sm  w-[70%] md:w-[35%] mx-auto text-center text-slate-50 first-letter:uppercase;
+  }
+  .flex-container {
+    @apply flex items-center space-x-[50px] md:space-x-[150px];
+  }
+}
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +32,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
+/* * {
+  outline: 1px solid red;
+} */
