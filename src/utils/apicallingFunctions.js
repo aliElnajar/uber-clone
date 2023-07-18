@@ -28,11 +28,4 @@ export async function gettingCoordinations(actualAddress) {
   const destinationMark = data.features[0].center;
   return destinationMark;
 }
-//fn3 calling fns and setting markers
-  // export const gettingGeoLocation = async (location,destination) => {
-  //   const [locationCoord, destinationCoord] = Promise.all(
-  //     gettingCoordinations(location),
-  //     gettingCoordinations(destination)
-  //   );
-  //   console.log({ locationCoord, destinationCoord });
-  // };
+
