@@ -1,4 +1,4 @@
-import FindingDriverStatus from "./driver/FindingDriverStatus";
+import FindingDriverStatus from "./driver/waitingAndCanceling/FindingDriverStatus";
 import ChoosingCar from "./ridetype/ChoosingCar";
 import { useGeneralContext } from "../store&providers/ContextStore";
 const UberRides = ({ distance }) => {

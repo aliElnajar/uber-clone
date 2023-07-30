@@ -1,6 +1,6 @@
 import { useGeneralContext } from "../../store&providers/ContextStore";
 
-const CarCard = ({ title, price, img, userRide, choosingRide }) => {
+const CarCard = ({ title, price, img }) => {
   const { rideChoosen, choosingRideHandler } = useGeneralContext();
   const choosenStyles =
     title === rideChoosen ? "bg-gray-200 hover:bg-gray-200" : "";
@@ -17,7 +17,9 @@ const CarCard = ({ title, price, img, userRide, choosingRide }) => {
         <h2>{title}</h2>
         <p className="text-sm text-blue-400">less than minute away</p>
       </div>
-      <p className="text-sm font-semibold italic ">{price} EGP</p>
+      <p className="text-sm font-semibold italic ">
+        {isNaN(price) ? "--" : `${price} EGP`}
+      </p>
     </button>
   );
 };

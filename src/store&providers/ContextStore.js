@@ -1,12 +1,15 @@
 import { useContext, createContext, useReducer } from "react";
-import { reducerFn } from "./reducerFn";
+import { reducerFn, initialState } from "./reducerFn";
 export const generalContext = createContext();
 
 export const GeneralContextProvider = ({ children }) => {
-  const initialState = {
-    rideChoosen: null,
-    confirmRide: false,
-    foundDriver: false,
+  const inputChangeHandler = (e, b) => {
+    const { name, value } = e.target;
+    if (b === "location") {
+      dispatch({ type: "CHANGE_IN_LOCATION", payload: { name, value } });
+    } else {
+      dispatch({ type: "CHANGE_IN_DESTINATION", payload: { name, value } });
+    }
   };
 
   const choosingRideHandler = (ride) => {
@@ -32,6 +35,7 @@ export const GeneralContextProvider = ({ children }) => {
         choosingRideHandler,
         confirmingRideHandler,
         findingDriverHandler,
+        inputChangeHandler,
       }}
     >
       {children}

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mapbox/search-js-react": "^1.0.0-beta.17",
     "@tanstack/react-query": "^4.29.19",
     "@types/mapbox-gl": "^2.7.11",
     "@types/node": "20.3.1",
@@ -17,6 +18,7 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "lodash.valuesin": "^4.3.0",
     "mapbox-gl": "^2.15.0",
     "next": "13.4.7",
     "next-auth": "^4.22.1",

@@ -5,8 +5,12 @@ import {
 import { useQuery, useQueries } from "@tanstack/react-query";
 const useQueryFetch = (location, destination) => {
   const [
-    { data: locationCoordinations, isLoading: locLoading },
-    { data: destinationCoordinations, isLoading: destLoading },
+    { data: locationCoordinations, isLoading: locLoading, isError: locError },
+    {
+      data: destinationCoordinations,
+      isLoading: destLoading,
+      isError: destError,
+    },
   ] = useQueries({
     queries: [
       {
@@ -20,7 +24,11 @@ const useQueryFetch = (location, destination) => {
     ],
   });
 
-  const { data: distance, isLoading: distanceLoading } = useQuery({
+  const {
+    data: distance,
+    isLoading: distanceLoading,
+    isError: distanceError,
+  } = useQuery({
     queryKey: ["distance"],
     enabled: !!locationCoordinations && !!destinationCoordinations,
     queryFn: () =>
@@ -32,6 +40,7 @@ const useQueryFetch = (location, destination) => {
     distance,
     destinationCoordinations,
     loadingStatus: locLoading || destLoading || distanceLoading,
+    errorStatus: distanceError||destError||locError,
   };
 };
 

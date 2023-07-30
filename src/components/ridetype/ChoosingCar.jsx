@@ -5,9 +5,11 @@ import { useGeneralContext } from "../../store&providers/ContextStore";
 const ChoosingCar = ({ distance }) => {
   const { rideChoosen, confirmingRideHandler } = useGeneralContext();
   return (
-    <div className="flex flex-col  h-[50svh]">
-      <UserActions />
-      <div className="flex-1 flex flex-col space-y-3 overflow-y-scroll  ">
+    <div className="flex flex-col h-[50vh] ">
+      <div className="h-[10%] ">
+        <UserActions />
+      </div>
+      <div className="h-[75%] flex flex-col space-y-3 overflow-y-scroll  ">
         {ridesDataArr.map((ride, i) => (
           <CarCard
             key={i}
@@ -19,7 +21,7 @@ const ChoosingCar = ({ distance }) => {
       </div>
       <button
         disabled={!rideChoosen}
-        className="btn-custom my-1 flex-0.5 "
+        className=" bg-black w-[100%] md:w-[50%] mx-auto text-white my-1 flex-0.5 h-1/6 bottom-0 sticky "
         onClick={() => confirmingRideHandler(true)}
       >
         Confirm {rideChoosen}
