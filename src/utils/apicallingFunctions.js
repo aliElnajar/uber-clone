@@ -36,3 +36,7 @@ export async function gettingCoordinations(actualAddress) {
     throw new Error(error);
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ce2f89b8a1ec18e2ff5046ced361d18ab358b9f
