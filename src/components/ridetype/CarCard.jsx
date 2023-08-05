@@ -1,6 +1,11 @@
 import { useGeneralContext } from "../../store&providers/ContextStore";
+import { useQueryClient } from "@tanstack/react-query";
 
-const CarCard = ({ title, price, img }) => {
+const CarCard = ({ title, img, rideRatio }) => {
+  const queryClient = useQueryClient();
+  const distance = queryClient.getQueryData(["distance"]);
+  const price = distance ? Math.ceil(rideRatio * distance) : "--";
+
   const { rideChoosen, choosingRideHandler } = useGeneralContext();
   const choosenStyles =
     title === rideChoosen ? "bg-gray-200 hover:bg-gray-200" : "";
@@ -18,7 +23,8 @@ const CarCard = ({ title, price, img }) => {
         <p className="text-sm text-blue-400">less than minute away</p>
       </div>
       <p className="text-sm font-semibold italic ">
-        {isNaN(price) ? "--" : `${price} EGP`}
+        {price}
+        {/* {isNaN(price) ? "--" : `${price} EGP`} */}
       </p>
     </button>
   );

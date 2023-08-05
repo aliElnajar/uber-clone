@@ -3,9 +3,9 @@ import { reducerFn, initialState } from "./reducerFn";
 export const generalContext = createContext();
 
 export const GeneralContextProvider = ({ children }) => {
-  const inputChangeHandler = (e, b) => {
+  const inputChangeHandler = (e, section) => {
     const { name, value } = e.target;
-    if (b === "location") {
+    if (section === "location") {
       dispatch({ type: "CHANGE_IN_LOCATION", payload: { name, value } });
     } else {
       dispatch({ type: "CHANGE_IN_DESTINATION", payload: { name, value } });
@@ -26,6 +26,10 @@ export const GeneralContextProvider = ({ children }) => {
     dispatch({ type: "FOUNDED_DRIVER" });
   };
 
+  const resetLocations = () => {
+    dispatch({ type: "RESET_LOCATION_DESTINATION" });
+  };
+
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
   return (
@@ -36,6 +40,7 @@ export const GeneralContextProvider = ({ children }) => {
         confirmingRideHandler,
         findingDriverHandler,
         inputChangeHandler,
+        resetLocations,
       }}
     >
       {children}

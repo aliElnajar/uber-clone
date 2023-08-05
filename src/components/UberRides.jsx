@@ -1,9 +1,9 @@
 import FindingDriverStatus from "./driver/waitingAndCanceling/FindingDriverStatus";
 import ChoosingCar from "./ridetype/ChoosingCar";
 import { useGeneralContext } from "../store&providers/ContextStore";
-const UberRides = ({ distance }) => {
+const UberRides = () => {
   const { confirmRide } = useGeneralContext();
-  let content = <ChoosingCar distance={distance} />;
+  let content = <ChoosingCar />;
 
   if (confirmRide) {
     content = <FindingDriverStatus />;

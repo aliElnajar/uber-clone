@@ -10,6 +10,7 @@ export const initialState = {
   foundDriver: false,
   locationAddress: defaultAddress,
   destinationAddress: defaultAddress,
+ 
 };
 
 export const reducerFn = (state, action) => {
@@ -37,6 +38,12 @@ export const reducerFn = (state, action) => {
           ...state.destinationAddress,
           [action.payload.name]: action.payload.value,
         },
+      };
+    case "RESET_LOCATION_DESTINATION":
+      return {
+        ...state,
+        destinationAddress: defaultAddress,
+        locationAddress: defaultAddress,
       };
     default:
       return { ...initialState };

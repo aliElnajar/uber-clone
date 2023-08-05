@@ -1,28 +1,30 @@
 import Link from "next/link";
-import React from "react";
-import Image from "next/image";
-import gif from "../../public/ErrorGif.gif";
 
 const notFound = () => {
   return (
     <>
       <title>page not found</title>
-      <div className="grid place-items-center py-[20px] font-['avro]">
-        <h1 className="text-[60px] text-center -mb-[30px] z-30">404</h1>
-        <Image
-          src={gif}
-          className="scale-75 lg:scale-100 w-[600px] h-[450px] z-10"
-        />
-        <div className="-mt-[40px] z-40 grid place-items-center">
-          <h3 className="text-2xl">Look like you're lost</h3>
-
-          <p className="text-lg py-2">
-            the page you are looking for not avaible!
-          </p>
-
-          <Link href="/" className="btn bg-[#39ac31] hover:bg-slate-300">
-            Home Page
-          </Link>
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage:
+            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+        }}
+      >
+        <div className="hero-overlay bg-opacity-60" />
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">404</h1>
+            <h6 className="mb-5 text-2xl ">
+              Looks like you've found the doorway to the great nothing
+            </h6>
+            <p className="font-sm text-slate-300 tracking-wide mb-5">
+              Please visit our hompage to get where you need to go.
+            </p>
+            <Link href="/" className="btn btn-warning ">
+              Home Page
+            </Link>{" "}
+          </div>
         </div>
       </div>
     </>

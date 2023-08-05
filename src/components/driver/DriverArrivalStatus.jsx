@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import DriverEstimatedArrival from "./DriverEstimatedArrival";
 const DriverArriveTime = () => {
-  const [secondsLeft, setSecondsLeft] = useState(30);
+  const [secondsLeft, setSecondsLeft] = useState(10);
   useEffect(() => {
     if (!secondsLeft) return;
     const countDown = setTimeout(() => {

@@ -3,10 +3,22 @@ import BackButton from "./BackButton";
 import AddressAutoComplete from "./AddressAutofill";
 import ValuesIn from "lodash.valuesin";
 import { useGeneralContext } from "@/store&providers/ContextStore";
+import { useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const Form = () => {
-  const { inputChangeHandler, locationAddress, destinationAddress } =
-    useGeneralContext();
+  const {
+    inputChangeHandler,
+    locationAddress,
+    destinationAddress,
+    resetLocations,
+  } = useGeneralContext();
+
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    queryClient.removeQueries();
+  }, []);
 
   const pickupStr = ValuesIn(locationAddress).join("");
   const dropoffStr = ValuesIn(destinationAddress).join("");
@@ -43,6 +55,8 @@ const Form = () => {
           className="btn-custom "
         >
           <Link
+            prefetch={false}
+            onClick={() => resetLocations()}
             href={{
               pathname: "/confirm/",
               query: {

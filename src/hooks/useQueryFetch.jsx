@@ -4,6 +4,7 @@ import {
 } from "../utils/apicallingFunctions";
 import { useQuery, useQueries } from "@tanstack/react-query";
 const useQueryFetch = (location, destination) => {
+
   const [
     { data: locationCoordinations, isLoading: locLoading, isError: locError },
     {
@@ -40,7 +41,7 @@ const useQueryFetch = (location, destination) => {
     distance,
     destinationCoordinations,
     loadingStatus: locLoading || destLoading || distanceLoading,
-    errorStatus: distanceError||destError||locError,
+    errorStatus: distanceError || destError || locError,
   };
 };
 
